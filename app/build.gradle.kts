@@ -60,20 +60,17 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     
     val nav_version = "2.9.6"
-
-    // Jetpack Compose integration
     implementation("androidx.navigation:navigation-compose:$nav_version")
-
-    // Views/Fragments integration
     implementation("androidx.navigation:navigation-fragment:$nav_version")
     implementation("androidx.navigation:navigation-ui:$nav_version")
-
-    // Feature module support for Fragments
     implementation("androidx.navigation:navigation-dynamic-features-fragment:$nav_version")
-
-    // Testing Navigation
     androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
-
-    // JSON serialization library, works with the Kotlin serialization plugin
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+
+    val room_version = "2.8.4"
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
+
 }   

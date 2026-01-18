@@ -47,7 +47,7 @@ class RecipeRepositoryImpl(
             id = recipe.id,
             name = recipe.name,
             description = recipe.description,
-            ingredients = recipe.ingredients.joinToString(","), // Convert list to comma-separated string
+            ingredients = recipe.ingredients,
             procedure = recipe.procedure
         )
     }

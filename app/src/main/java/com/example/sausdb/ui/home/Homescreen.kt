@@ -28,7 +28,7 @@ fun Homescreen(navController: NavHostController) {
     ) {
         Button(
             onClick = {
-                navController.navigate("PalindromeScreen")
+                navController.navigate("Sausscreen")
             }, modifier = Modifier.fillMaxWidth()
         ) {
             Text(text = "Go to Sausscreen")

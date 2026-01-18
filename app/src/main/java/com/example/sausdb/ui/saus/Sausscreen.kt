@@ -1,8 +1,11 @@
 package com.example.sausdb.ui.home
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.Button
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.compose.material3.Text
@@ -17,5 +20,18 @@ fun Sausscreen(navController: NavHostController) {
         verticalArrangement = Arrangement.Center,
     ){
         Text(text = "Welcome to Sausscreen!")
+    }
+
+    Box (
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.BottomCenter
+    ) {
+        Button(
+            onClick = {
+                navController.popBackStack()
+            }, modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(text = "Return to homescreen")
+        }
     }
 }

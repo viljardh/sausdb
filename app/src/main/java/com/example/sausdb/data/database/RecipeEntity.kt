@@ -12,4 +12,4 @@ data class RecipeEntity(
     @ColumnInfo(name = "description") val description: String,
     @ColumnInfo(name = "ingredients") val ingredients: String, // Stored as a comma-separated string
     @ColumnInfo(name = "procedure") val procedure: String,
-    @ColumnInfo(name = "category_id") val categoryId: Int)
+)

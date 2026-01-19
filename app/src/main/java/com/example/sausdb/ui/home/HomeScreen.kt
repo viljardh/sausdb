@@ -1,6 +1,7 @@
 // kotlin
 package com.example.sausdb.ui.home
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -24,12 +25,13 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.sausdb.model.Recipe
 
 @Composable
 fun Homescreen(
     navController: NavHostController,
-    onSave: (Recipe) -> Unit = {}
+    viewModel: HomeViewModel = viewModel(),
 ) {
     val keyboardController = LocalSoftwareKeyboardController.current
 
@@ -134,9 +136,10 @@ fun Homescreen(
                     ingredients = ingredients.trim(),
                     procedure = procedure.trim()
                 )
-                onSave(recipe)
+                viewModel.saveRecipe(recipe)
+                Log.d("Homescreen", recipe.toString())
                 name = ""
-                description = ""  // Add this
+                description = ""
                 ingredients = ""
                 procedure = ""
                 keyboardController?.hide()

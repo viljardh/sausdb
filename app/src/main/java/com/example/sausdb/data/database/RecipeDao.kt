@@ -23,5 +23,5 @@ interface RecipeDao {
     fun searchRecipes(query: String): List<Recipe>
 
     @Delete
-    fun delete(recipe: Recipe)
+    suspend fun delete(recipe: RecipeEntity)
 }

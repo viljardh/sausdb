@@ -22,17 +22,29 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.compose.material3.Text
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.sausdb.model.Recipe
+import com.example.sausdb.data.database.AppDatabase
+import com.example.sausdb.data.recipe.RecipeRepository
+
 
 @Composable
 fun Homescreen(
     navController: NavHostController,
-    viewModel: HomeViewModel = viewModel(),
 ) {
+    val context = LocalContext.current
+    val homeViewModel: HomeViewModel = viewModel(
+        factory = remember {
+            val database = AppDatabase.getDatabase(context)
+            val repository = RecipeRepository.RecipeRepositoryImpl(database.recipeDao(), context)
+            HomeViewModelFactory(repository)
+        }
+    )
+
     val keyboardController = LocalSoftwareKeyboardController.current
 
     var name by remember { mutableStateOf("") }
@@ -136,7 +148,7 @@ fun Homescreen(
                     ingredients = ingredients.trim(),
                     procedure = procedure.trim()
                 )
-                viewModel.saveRecipe(recipe)
+                homeViewModel.saveRecipe(recipe)
                 Log.d("Homescreen", recipe.toString())
                 name = ""
                 description = ""

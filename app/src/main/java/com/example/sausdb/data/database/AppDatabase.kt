@@ -24,16 +24,16 @@ abstract class AppDatabase : RoomDatabase() {
 
         fun getDatabase(context: Context): AppDatabase {
             Log.d("AppDatabase", "Initializes database")
-            // if the INSTANCE is not null, then return it,
-            // if it is, then create the database
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
-                    context.applicationContext, AppDatabase::class.java, "placeinfo_database"
-                ).createFromAsset("database/placeinfo_database.db").build()
+                    context.applicationContext,
+                    AppDatabase::class.java,
+                    "placeinfo_database"
+                ).build()
                 INSTANCE = instance
-                // return instance
                 instance
             }
         }
+
     }
 }

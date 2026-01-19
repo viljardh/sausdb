@@ -38,7 +38,8 @@ interface RecipeRepository {
         }
 
         override suspend fun deleteRecipe(recipe: Recipe) {
-            recipeDao.delete(recipe)
+            val entity = fromRecipe(recipe)
+            recipeDao.delete(entity)
         }
 
         private fun fromRecipe(recipe: Recipe): RecipeEntity {

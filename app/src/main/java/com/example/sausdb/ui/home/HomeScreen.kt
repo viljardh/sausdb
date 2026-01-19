@@ -137,9 +137,9 @@ fun Homescreen(
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Button(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Bottom,
+){      Button(
             onClick = {
                 val recipe = Recipe(
                     id = 0,

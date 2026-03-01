@@ -7,7 +7,12 @@ import com.example.sausdb.model.Recipe
 import kotlinx.coroutines.launch
 
 data class HomeUiState(
-    val recipe: Recipe = Recipe(0, "", "", "", "")
+    val recipe: Recipe = Recipe(
+        0,
+        "",
+        "",
+        "",
+        "")
 )
 
 class HomeViewModel(

@@ -1,4 +1,3 @@
-// kotlin
 package com.example.sausdb.ui.home
 
 import android.util.Log

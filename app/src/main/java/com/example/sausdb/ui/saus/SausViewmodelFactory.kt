@@ -1,9 +1,8 @@
-package com.example.sausdb.ui.home
+package com.example.sausdb.ui.saus
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.sausdb.data.recipe.RecipeRepository
-import com.example.sausdb.ui.saus.SausViewModel
 
 class SausViewModelFactory(
     private val repository: RecipeRepository

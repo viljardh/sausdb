@@ -22,7 +22,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.sausdb.data.database.AppDatabase
 import com.example.sausdb.data.recipe.RecipeRepository
-import com.example.sausdb.ui.home.SausViewModelFactory
 
 @Composable
 fun Sausscreen(navController: NavHostController) {
@@ -30,7 +29,8 @@ fun Sausscreen(navController: NavHostController) {
     val viewModel: SausViewModel = viewModel(
         factory = remember {
             val database = AppDatabase.getDatabase(context)
-            val repository = RecipeRepository.RecipeRepositoryImpl(database.recipeDao(), context)
+            val repository = RecipeRepository.RecipeRepositoryImpl(
+                database.recipeDao(), context)
             SausViewModelFactory(repository)
         }
     )
